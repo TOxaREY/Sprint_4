@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.praktikum.sprint_4.data.Customer;
+import ru.yandex.praktikum.sprint_4.data.Order;
 
 public class OrderPageScooterPOM {
 
@@ -56,7 +58,7 @@ public class OrderPageScooterPOM {
         driver.findElement(nextButton).click();
     }
 
-    private void waitForLoadContinuationForm() {
+    private void waitForLoadAboutRentForm() {
         new WebDriverWait(driver, 3)
                 .until(ExpectedConditions.visibilityOfElementLocated(dateField));
     }
@@ -111,57 +113,27 @@ public class OrderPageScooterPOM {
                 .until(ExpectedConditions.visibilityOfElementLocated(textOrderIsProcessed));
     }
 
-    private void orderForm(String name,
-                           String surname,
-                           String address,
-                           String metroStation,
-                           String telephoneNumber,
-                           String date,
-                           int days) {
+    public void forWhomScooterForm(Customer customer) {
         waitForLoadOrderPage();
-        setNameField(name);
-        setSurnameField(surname);
-        setAddressField(address);
-        setMetroStationSelect(metroStation);
-        setTelephoneNumberField(telephoneNumber);
+        setNameField(customer.name);
+        setSurnameField(customer.surname);
+        setAddressField(customer.address);
+        setMetroStationSelect(customer.metroStation);
+        setTelephoneNumberField(customer.telephoneNumber);
         clickNextButton();
-        waitForLoadContinuationForm();
-        setDateField(date);
+    }
+
+    public void aboutRentForm(Order order) {
+        waitForLoadAboutRentForm();
+        setDateField(order.date);
         clickRentalPeriodSelect();
-        selectRentalPeriodList(days);
+        selectRentalPeriodList(order.days);
         clickOrderFormButton();
+    }
+
+    public void popUpWindowOrderComplete() {
         waitForLoadPopUpWindowOrderComfirm();
         clickYesButton();
         waitForLoadPopUpWindowOrderComplete();
-    }
-
-    public void orderUsingHeaderButton(
-            WebDriver driver,
-            String name,
-            String surname,
-            String address,
-            String metroStation,
-            String telephoneNumber,
-            String date,
-            int days) {
-        HomePageScooterPOM objHomePageScooterPOM = new HomePageScooterPOM(driver);
-        objHomePageScooterPOM.waitForLoadHomePageHeaderButton();
-        objHomePageScooterPOM.clickHomePageHeaderButton();
-        orderForm(name, surname, address, metroStation, telephoneNumber,date, days);
-    }
-
-    public void orderUsingMiddleButton(
-            WebDriver driver,
-            String name,
-            String surname,
-            String address,
-            String metroStation,
-            String telephoneNumber,
-            String date,
-            int days) {
-        HomePageScooterPOM objHomePageScooterPOM = new HomePageScooterPOM(driver);
-        objHomePageScooterPOM.waitForLoadHomePageMiddleButton();
-        objHomePageScooterPOM.clickHomePageMiddleButton();
-        orderForm(name, surname, address, metroStation, telephoneNumber,date, days);
     }
 }

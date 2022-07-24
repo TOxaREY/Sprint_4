@@ -1,99 +1,79 @@
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.yandex.praktikum.sprint_4.POM.HomePageScooterPOM;
 
+import static ru.yandex.praktikum.sprint_4.data.URLAddress.YANDEX_SCOOTER_URL;
+
 public class TestYandexScooterFAQFirefox {
 
     private WebDriver driver;
+    private HomePageScooterPOM objHomePageScooter;
+
+    @Before
+    public void before() {
+        driver = new FirefoxDriver();
+        driver.get(YANDEX_SCOOTER_URL);
+        driver.manage().window().maximize();
+        objHomePageScooter = new HomePageScooterPOM(driver);
+    }
 
     @Test
     public void testHomePageScooterFAQ1Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq1Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq1Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq1Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq1Answer());
     }
 
     @Test
     public void testHomePageScooterFAQ2Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq2Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq2Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq2Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq2Answer());
     }
 
     @Test
     public void testHomePageScooterFAQ3Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq3Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq3Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq3Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq3Answer());
     }
 
     @Test
     public void testHomePageScooterFAQ4Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq4Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq4Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq4Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq4Answer());
     }
 
     @Test
     public void testHomePageScooterFAQ5Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq5Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq5Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq5Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq5Answer());
     }
 
     @Test
     public void testHomePageScooterFAQ6Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq6Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq6Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq6Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq6Answer());
     }
 
     @Test
     public void testHomePageScooterFAQ7Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq7Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq7Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq7Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq7Answer());
     }
 
     @Test
     public void testHomePageScooterFAQ8Firefox() {
-        driver = new FirefoxDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-
-        HomePageScooterPOM objHomePageScooter = new HomePageScooterPOM(driver);
         objHomePageScooter.waitForLoadHomePageFAQ();
-        objHomePageScooter.clickFaqQuestion(objHomePageScooter.faq8Question);
-        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.faq8Answer);
+        objHomePageScooter.clickFaqQuestion(objHomePageScooter.getFaq8Question());
+        objHomePageScooter.isDisplayedFaqQuestion(objHomePageScooter.getFaq8Answer());
     }
 
     @After
